@@ -1,4 +1,8 @@
+;;; package --- Summary
+;;; Commentary:
 (require 'package)
+
+;;; Code:
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
@@ -40,6 +44,7 @@
 (setq clang-format-style "gnu")
 
 (defun clang-format-on-save()
+  ;;; "Adds a hook so the code is formatted before its content is written to a file"
   (add-hook 'before-save-hook #'clang-format-buffer nil 'local))
 (add-hook 'c-mode-hook 'clang-format-on-save)
 (add-hook 'c++-mode-hook 'clang-format-on-save)
@@ -53,3 +58,5 @@
 (setq whitespace-line-column 80)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
 (add-hook 'prog-mode-hook 'whitespace-mode)
+
+;;; .emacs ends here
